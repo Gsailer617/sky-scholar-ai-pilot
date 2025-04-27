@@ -128,10 +128,6 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 			},
-			boxShadow: {
-				'glow': '0 0 20px rgba(139, 92, 246, 0.5)',
-				'card': '0 4px 15px rgba(0, 0, 0, 0.2)'
-			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

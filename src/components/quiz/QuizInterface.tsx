@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -111,7 +110,7 @@ const QuizInterface = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(prev => prev - 1);
       setSelectedOption(answers[SAMPLE_QUESTIONS[currentQuestionIndex - 1].id] ?? null);
-      setShowExplanation(false);
+      setShowExplanation(false); // This line needed fixing
     }
   };
   
@@ -149,7 +148,11 @@ const QuizInterface = () => {
   };
   
   const toggleExplanation = () => {
-    setShowExplanation(!showExplanation);
+    if (showExplanation === currentQuestion.id) {
+      setShowExplanation(false);
+    } else {
+      setShowExplanation(currentQuestion.id);
+    }
   };
   
   return (

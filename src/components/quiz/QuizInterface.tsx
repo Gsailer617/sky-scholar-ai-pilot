@@ -73,7 +73,7 @@ const QuizInterface = () => {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [answers, setAnswers] = useState<{ [questionId: string]: number }>({});
   const [quizSubmitted, setQuizSubmitted] = useState(false);
-  const [showExplanation, setShowExplanation] = useState(false);
+  const [showExplanation, setShowExplanation] = useState<string | false>(false);
   const { toast } = useToast();
 
   const currentQuestion = SAMPLE_QUESTIONS[currentQuestionIndex];
@@ -254,8 +254,8 @@ const QuizInterface = () => {
                       variant="ghost" 
                       size="sm" 
                       onClick={() => {
-                        setShowExplanation(prev => 
-                          prev === question.id ? false : question.id
+                        setShowExplanation(prevState => 
+                          prevState === question.id ? false : question.id
                         );
                       }}
                       className="text-sky-600 hover:text-sky-800 p-0 h-auto"
